@@ -63,6 +63,7 @@ class RemoteModelTensorFlowREST(object):
         conn.request('POST', path, json.dumps(request), headers)
         response = conn.getresponse().read()
         outcomes_list = json.loads(response)
+
         if "error" in outcomes_list:
             raise ValueError("remote server returns error: {0}".format(outcomes_list["error"]))
         outcomes_list = outcomes_list["outputs"]
