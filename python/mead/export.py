@@ -53,6 +53,13 @@ def main():
                                feature_exporter_field_map=feature_exporter_field_map)
     exporter.run(args.model, args.output_dir, args.model_version, remote=args.is_remote)
 
+<<<<<<< HEAD
+=======
+    task = mead.Task.get_task_specific(task_name, args.logging, args.settings)
+    task.read_config(config_params, args.datasets)
+    exporter = create_exporter(task, args.exporter_type)
+    exporter.run(args.model, args.output_dir, args.model_version, remote=args.is_remote)
+>>>>>>> mead:exporter add option is_remote. If true, separate output into a server consumable and client consumable. If false, output everything in a single dir for local serving.
 
 if __name__ == "__main__":
     main()
